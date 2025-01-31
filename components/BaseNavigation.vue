@@ -11,9 +11,9 @@
 				<li>
 					<NuxtLink to="/" class="nav-links-list-link">Home</NuxtLink>
 				</li>
-				<!-- <li>
+				<li>
 					<NuxtLink to="/about" class="nav-links-list-link">About</NuxtLink>
-				</li> -->
+				</li>
 			</ul>
 		</nav>
 	</header>
