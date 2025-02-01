@@ -1,11 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { RecipeResponse } from '~/types/types';
+
+const { data, error } = await useFetch<RecipeResponse>('https://dummyjson.com/recipes?limit=12');
+</script>
 
 <template>
 	<main>
 		<section class="hero-section">
 			<div class="container">
 				<div class="content">
-					<h1>Master the Kitchen with Ease: Unleash Your Inner Chef Today!</h1>
+					<h1 class="h1">Master the Kitchen with Ease: Unleash Your Inner Chef Today!</h1>
 					<p>Discover recipes helping you to find the easiest way to cook.</p>
 					<!-- <UButton to="#recipes" label="Browse Recipes" /> -->
 				</div>
@@ -13,6 +17,17 @@
 					<NuxtImg sizes="xs:100vw sm:667px" src="/nuxt-course-hero.png" format="webp" densities="x1" alt="" />
 				</div>
 			</div>
+		</section>
+		<section id="recipes" class="recipes-section">
+			<h2 class="h2">Discover, Create, Share</h2>
+			<p class="recipes-description">Check out our most popular recipes!</p>
+			<div v-if="!error" class="recipes-grid">
+				<!-- <RecipeCard v-for="recipe in data?.recipes" :recipe="recipe" /> -->
+			</div>
+			<p v-else class="error-message">Oops, something went wrong. Please try again later</p>
+		</section>
+		<section class="signup-section">
+			<!-- <SignupForm /> -->
 		</section>
 	</main>
 </template>
@@ -38,7 +53,7 @@
 	text-align: center;
 }
 
-h1 {
+.h1 {
 	margin-bottom: 2.4rem;
 	font-size: 4rem;
 	font-weight: 800;
@@ -58,6 +73,39 @@ p {
 	order: 1;
 }
 
+.recipes-section {
+	margin: 0 auto;
+	padding: 8rem 2rem;
+	max-width: 1200px;
+	text-align: center;
+}
+
+.h2 {
+	margin-bottom: 0.8rem;
+	font-size: 3rem;
+}
+
+.recipes-description {
+	margin-bottom: 3.2rem;
+	font-size: 1.8rem;
+}
+
+.recipes-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1.6rem;
+}
+
+.error-message {
+	color: red;
+	font-size: 2rem;
+}
+
+.signup-section {
+	padding: 8rem 2rem;
+	background-color: #f1f1f1;
+}
+
 @media (min-width: 640px) {
 	.container {
 		max-width: 640px;
@@ -67,6 +115,10 @@ p {
 @media (min-width: 768px) {
 	.container {
 		max-width: 768px;
+	}
+
+	.recipes-grid {
+		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
@@ -81,12 +133,24 @@ p {
 		order: 1;
 	}
 
-	.h1 {
+	/* .h1 {
 		font-size: 6rem;
-	}
+	} */
 
 	.image-wrapper {
 		order: 2;
+	}
+
+	.h2 {
+		font-size: 4.8rem;
+	}
+
+	.recipes-description {
+		font-size: 2rem;
+	}
+
+	.recipes-grid {
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
