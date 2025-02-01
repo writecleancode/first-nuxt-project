@@ -28,6 +28,7 @@
 	flex-direction: column;
 	align-items: center;
 	gap: 4rem;
+	margin-inline: auto;
 	padding: 3.6rem;
 }
 
@@ -57,9 +58,22 @@ p {
 	order: 1;
 }
 
+@media (min-width: 640px) {
+	.container {
+		max-width: 640px;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+		max-width: 768px;
+	}
+}
+
 @media (min-width: 1024px) {
 	.container {
 		flex-direction: row;
+		max-width: 1024px;
 	}
 
 	.content {
@@ -73,6 +87,12 @@ p {
 
 	.image-wrapper {
 		order: 2;
+	}
+}
+
+@media (min-width: 1280px) {
+	.container {
+		max-width: 1280px;
 	}
 }
 </style>
