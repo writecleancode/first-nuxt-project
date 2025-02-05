@@ -24,7 +24,7 @@ useSeoMeta({
 				<div class="content">
 					<h1 class="h1">Master the Kitchen with Ease: Unleash Your Inner Chef Today!</h1>
 					<p>Discover recipes helping you to find the easiest way to cook.</p>
-					<!-- <UButton to="#recipes" label="Browse Recipes" /> -->
+					<UButton to="#recipes" label="Browse Recipes" />
 				</div>
 				<div class="image-wrapper">
 					<NuxtImg sizes="xs:100vw sm:667px" src="/nuxt-course-hero.png" format="webp" densities="x1" alt="" />
@@ -35,12 +35,12 @@ useSeoMeta({
 			<h2 class="h2">Discover, Create, Share</h2>
 			<p class="recipes-description">Check out our most popular recipes!</p>
 			<div v-if="!error" class="recipes-grid">
-				<!-- <RecipeCard v-for="recipe in data?.recipes" :recipe="recipe" /> -->
+				<RecipeCard v-for="recipe in data?.recipes" :recipe="recipe" />
 			</div>
 			<p v-else class="error-message">Oops, something went wrong. Please try again later</p>
 		</section>
 		<section class="signup-section">
-			<!-- <SignupForm /> -->
+			<SignupForm />
 		</section>
 	</main>
 </template>
